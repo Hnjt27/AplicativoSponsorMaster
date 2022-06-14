@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AplicativoSponsor.Models.Empresa>
+
+@{
+    ViewBag.Title = "FeedEmpresa";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+
+<body>
+
+
+
+    <div class="container" style="margin-left:140px;">
+
+
+
+        @foreach (var item in Model)
+        {
+
+            <div class="col col-md-3">
+
+                <div class="card" style="width: 18rem; margin-bottom: 30px;height:450px;">
+
+                    <img src="https://www.site.com.br/wp-content/uploads/site-construcao-1.jpg" class="card-img-top" alt="...">
+
+
+                    <div class="card-body" id="desc"
+                         style="max-height:150px; overflow:hidden; text-overflow:ellipsis;">
+                        <h5 class="card-title">@Html.DisplayFor(modelitem => item.RazaoSocial)</h5>
+                        <span>@Html.DisplayFor(modelItem => item.Descricao_Empresa)</span>
+                    </div>
+
+                    <ul class="list-group list-group-flush" style="max-height: 100px">
+
+                        <li class="list-group-item"><span>País: @Html.DisplayFor(modelItem => item.Pais)</span></li>
+
+                        <li class="list-group-item"><span>Estado: @Html.DisplayFor(modelItem => item.Estado)</span></li>
+
+                        <li class="list-group-item"><span>Cidade: @Html.DisplayFor(modelItem => item.Cidade)</span></li>
+                    </ul>
+
+
+                    <div class="card-body">
+                        <p>
+
+                            @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_empresa))
+
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+        }
+
+
+    </div>
+
+
+
+</body>
+

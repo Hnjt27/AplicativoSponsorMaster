@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "Página Principal - SPONSOR";
+
+    if (Session["id_logado"] != null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+
+    }
+
+    if (Session["id_logado"] == null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutDeslogado.cshtml";
+
+    }
+
+}
+
+<div class="container py-4" id="cont_home" style="margin-top: 55px;">
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Todos os eventos</h2>
+                <p>Confira todos os eventos e escolha aquele que se encaixe com sua empresa.</p>
+                <button class="btn btn-outline-dark" type="button">Visualizar</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>Todos os patrocinadores</h2>
+                <p>Aqui você encontra todos os patrocinadores para solicitar um patrocínio que seja a cara do seu evento.</p>
+                <button class="btn btn-outline-dark" type="button">Visualizar</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-3 p-3 bg-body rounded shadow-sm">
+        <h6 class="border-bottom pb-2 mb-0">Notícias</h6>
+        <div class="d-flex text-muted pt-3">
+            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"></rect><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+
+            <p class="pb-3 mb-0 small lh-sm border-bottom">
+                <strong class="d-block text-gray-dark">Setor de eventos aposta na retomada de 100% da programação em 2022</strong>
+                Associação prevê quase 590 mil de eventos no Brasil; na cidade do Rio, mais de 80 congressos, feiras e simpósios estão marcados para os próximos meses
+            </p>
+        </div>
+        <div class="d-flex text-muted pt-3">
+            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"></rect><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
+
+            <p class="pb-3 mb-0 small lh-sm border-bottom">
+                <strong class="d-block text-gray-dark">Atrações e tema do Festival dos Rios 2022 são definidos; evento será em Alter do Chão</strong>
+                Dona Onete, David Assayag e Amazon Beach estão confirmados na programação. Evento que celebra a cultura ribeirinha da Amazônia será realizado de forma presencial de 9 a 11 de junho.
+            </p>
+        </div>
+        <div class="d-flex text-muted pt-3">
+            <svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"></rect><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
+
+            <p class="pb-3 mb-0 small lh-sm border-bottom">
+                <strong class="d-block text-gray-dark">Guia do carnaval possível: veja como aproveitar o feriado em 2022</strong>
+                Com blocos de ruas proibidos nas maiores cidades do país, surgeiram opções de festas privadas, shows e delivery de drinks
+            </p>
+        </div>
+    </div>
+</div>
+
+
+

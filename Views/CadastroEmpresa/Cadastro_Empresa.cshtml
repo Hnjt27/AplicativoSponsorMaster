@@ -1,0 +1,160 @@
+﻿@model AplicativoSponsor.Models.Empresa
+
+@{
+    ViewBag.Title = "Cadastro de Empresa - Sponsor";
+    Layout = "~/Views/Shared/_LayoutSemNav.cshtml";
+}
+
+<link rel="stylesheet" href="~/Content/Site.css" asp-append-version="true" />
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            @using (Html.BeginForm("CadastrarEmpresa", "CadastroEmpresa"))
+            {
+            <form method="post" id="form-empresa">
+
+                <h1 class="titulo"> CADASTRO DA EMPRESA </h1>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Categoria" id="Cat_Organizador" value="Organizador">
+                    <label class="form-check-label" for="Cat_Organizador">Organizador</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="Categoria" id="Cat_Patrocinador" value="Patrocinador">
+                    <label class="form-check-label" for="Cat_Patrocinador">Patrocinador</label>
+                </div><br /><br />
+
+                <label for="nome">Nome do Responsável</label>
+                <input type="text" class="form-control" name="NomeResp" id="nome" required><br>
+
+                <label for="cpf_resp">CPF do Responsável</label>
+                <input type="text" class="form-control" name="CpfResp" id="cpf_resp" onkeypress="mascara(this, 'cpf')" required><br>
+
+                <label for="cnpj">CNPJ da Empresa</label>
+                <input type="text" class="form-control" name="CNPJ" id="cnpj" onkeypress="mascara(this, 'cnpj')" required><br>
+
+                <label for="telefone">Telefone</label>
+                <input type="text" class="form-control" name="Telefone" id="telefone" onkeypress="mascara(this, 'tel')" required><br>
+
+                <label for="razao_social">Razão Social da Empresa</label>
+                <input type="text" class="form-control" name="RazaoSocial" id="razao_social" required><br>
+
+                <label for="descricao_empresa">Descrição da Empresa</label>
+                <input type="text" class="form-control" name="Descricao_Empresa" id="descricao_empresa" required><br>
+
+                <label for="cep">CEP</label>
+                <input type="text" class="form-control" name="CEP" id="cep" onkeypress="mascara(this, 'cep')" required><br>
+
+                <label for="rua">Rua</label>
+                <input type="text" class="form-control" name="Rua" id="rua" required><br>
+
+                <label for="numero">Número</label>
+                <input type="text" class="form-control" name="Numero" id="numero" required><br>
+
+                <label for="bairro">Bairro</label>
+                <input type="text" class="form-control" name="Bairro" id="bairro" required><br>
+
+                <label for="cidade">Cidade</label>
+                <input type="text" class="form-control" name="Cidade" id="cidade" required><br>
+
+                <label for="estado">Estado</label>
+                <select class="form-select" name="Estado" id="estado">
+                    <option value="Acre">Acre</option>
+                    <option value="Alagoas">Alagoas</option>
+                    <option value="Amapá">Amapá</option>
+                    <option value="Amazonas">Amazonas</option>
+                    <option value="Bahia">Bahia</option>
+                    <option value="Ceará">Ceará</option>
+                    <option value="Distrito Federal">Distrito Federal</option>
+                    <option value="Espírito Santo">Espírito Santo</option>
+                    <option value="Goiás">Goiás</option>
+                    <option value="Maranhão">Maranhão</option>
+                    <option value="Mato Grosso">Mato Grosso</option>
+                    <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                    <option value="Minas Gerais">Minas Gerais</option>
+                    <option value="Pará">Pará</option>
+                    <option value="Paraíba">Paraíba</option>
+                    <option value="Paraná">Paraná</option>
+                    <option value="Pernambuco">Pernambuco</option>
+                    <option value="Piauí">Piauí</option>
+                    <option value="Rio de Janeiro">Rio de Janeiro</option>
+                    <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                    <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                    <option value="Rondônia">Rondônia</option>
+                    <option value="Roraima">Roraima</option>
+                    <option value="Santa Catarina">Santa Catarina</option>
+                    <option value="São Paulo">São Paulo</option>
+                    <option value="Sergipe">Sergipe</option>
+                    <option value="Tocantins">Tocantins</option>
+                </select><br>
+
+                <label for="pais">País</label>
+                <input type="text" class="form-control" name="Pais" id="pais" required><br>
+
+                <h2 class="titulo">DADOS DO LOGIN</h2>
+
+                <div class="form-group">
+                    <label for="email-cad">Email</label>
+                    <input type="text" class="form-control" name="EmailCad" id="email-cad" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="senha-cad">Senha</label>
+                    <input type="password" class="form-control" name="SenhaCad" id="senha-cad" required>
+                </div><br>
+
+                <input type="submit" class="btn btn-sponsor" id="btn-cad-emp" value="Cadastrar"></input><br><br>
+
+                <h6 style="text-align:center;">Caso queira voltar a tela de login, clique <a style="text-decoration: none; color: black;" href="/Login/Login">aqui.</a></h6>
+
+            </form><br />
+            }
+
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function mascara(i, t) {
+
+        var v = i.value;
+
+        if (isNaN(v[v.length - 1])) {
+            i.value = v.substring(0, v.length - 1);
+            return;
+        }
+
+        if (t == "cpf") {
+            i.setAttribute("maxlength", "14");
+            if (v.length == 3 || v.length == 7) i.value += ".";
+            if (v.length == 11) i.value += "-";
+        }
+
+        if (t == "cnpj") {
+            i.setAttribute("maxlength", "18");
+            if (v.length == 2 || v.length == 6) i.value += ".";
+            if (v.length == 10) i.value += "/";
+            if (v.length == 15) i.value += "-";
+        }
+
+        if (t == "cep") {
+            i.setAttribute("maxlength", "9");
+            if (v.length == 5) i.value += "-";
+        }
+
+        if (t == "tel") {
+            if (v[0] == 9) {
+                i.setAttribute("maxlength", "10");
+                if (v.length == 5) i.value += "-";
+            } else {
+                i.setAttribute("maxlength", "9");
+                if (v.length == 4) i.value += "-";
+            }
+        }
+    }
+
+</script>

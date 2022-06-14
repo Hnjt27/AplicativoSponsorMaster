@@ -1,0 +1,83 @@
+﻿html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+}
+
+form {
+    margin-top: 50px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.logo_nav {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+/*CSS da página Login*/
+
+#logo-login {
+    display: block;
+    margin: 0px auto 0px auto;
+    max-width: 420px;
+}
+
+#div-login {
+    margin: 70px auto;
+    box-shadow: 2px 2px 15px black;
+    padding: 5px 20px 20px 20px;
+}
+
+#btn-login {
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+#link_cad_login {
+    margin: 0px 120px;
+    color: black;
+    text-decoration: none;
+}
+
+/*CSS da pagina Cadastro Empresa*/
+
+#form-empresa {
+    padding: 20px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.btn-sponsor {
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+.titulo {
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.volta-login {
+    text-decoration: none;
+    color: black;
+}
+/*CSS da Home */
+
+

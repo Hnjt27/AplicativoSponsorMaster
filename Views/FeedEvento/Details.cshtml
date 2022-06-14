@@ -1,0 +1,102 @@
+﻿@model AplicativoSponsor.Models.Evento
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+}
+
+<div class="panel-body" align="center">
+    <h2> @Html.DisplayFor(model => model.Nome_evento)</h2>
+    <h4> @Html.DisplayFor(model => model.Categoria_evento)</h4>
+</div>
+
+<div>
+    <h4> @Html.DisplayFor(model => model.Categoria_evento)</h4>
+
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome_evento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome_evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Local_evento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Local_evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Data_final)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Data_final)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora_inicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora_inicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hora_final)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hora_final)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Publico_estimado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Publico_estimado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao_evento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao_evento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Id_empresa)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_empresa)
+        </dd>
+
+
+    </dl>
+
+    <a href="https://web.whatsapp.com/send?phone=5511951559236" target="_blank">whatsapp</a>
+
+
+
+</div>
+<p>
+
+    @Html.ActionLink("Eventos", "FeedEvento")
+    @Html.ActionLink("Edit", "Editar")
+</p>
