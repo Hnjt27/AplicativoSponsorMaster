@@ -33,31 +33,31 @@ namespace AplicativoSponsor.Models
         //Modelos para cadastro de evento
         public int Id_evento { get => id_evento; set => id_evento = value; }
 
-        [Required(ErrorMessage = "Campo 'Nome do Evento' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Nome do Evento' é obrigatório")]
         public string Nome_evento { get => nome_evento; set => nome_evento = value; }
 
-        [Required(ErrorMessage = "Campo 'Categoria do Evento' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Categoria do Evento' é obrigatório")]
         public string Categoria_evento { get => categoria_evento; set => categoria_evento = value; }
 
-        [Required(ErrorMessage = "Campo 'Local do Evento' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Local do Evento' é obrigatório")]
         public string Local_evento { get => local_evento; set => local_evento = value; }
 
-        [Required(ErrorMessage = "Campo 'Data Inicial' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Data Inicial' é obrigatório")]
         public string Data_inicio { get => data_inicio; set => data_inicio = value; }
 
-        [Required(ErrorMessage = "Campo 'Data Final' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Data Final' é obrigatório")]
         public string Data_final { get => data_final; set => data_final = value; }
 
-        [Required(ErrorMessage = "Campo 'Hora Inicial' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Hora Inicial' é obrigatório")]
         public string Hora_inicio { get => hora_inicio; set => hora_inicio = value; }
 
-        [Required(ErrorMessage = "Campo 'Hora Final' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Hora Final' é obrigatório")]
         public string Hora_final { get => hora_final; set => hora_final = value; }
 
-        [Required(ErrorMessage = "Campo 'Publico Estimado' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Publico Estimado' é obrigatório")]
         public string Publico_estimado { get => publico_estimado; set => publico_estimado = value; }
 
-        [Required(ErrorMessage = "Campo 'Descricao do Evento' é obrigatório")]
+        //[Required(ErrorMessage = "Campo 'Descricao do Evento' é obrigatório")]
         public string Descricao_evento { get => descricao_evento; set => descricao_evento = value; }
 
 
