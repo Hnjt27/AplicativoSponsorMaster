@@ -15,8 +15,16 @@ namespace AplicativoSponsor.Controllers
 
         public ActionResult Cadastro_Evento()
         {
+            if(Session["id_logado"] == null || Session["id_logado"] == "") {
 
-            return View();
+                return RedirectToAction("Login", "Login");
+            
+            } else
+            {
+
+                return View();
+
+            }
 
         }
         public ActionResult CadastrarEvento(Evento evt, HttpPostedFileBase fileCapa)
@@ -42,9 +50,8 @@ namespace AplicativoSponsor.Controllers
 
                     try
                     {
-                        //Cadastra evento na tabela tb_evento caso usuário esteja logado
-                        if (Session["id_logado"] != null) { comando.ExecuteNonQuery(); }
-                        else { return RedirectToAction("Login", "Login"); }
+                        //realiza o insert
+                         comando.ExecuteNonQuery(); 
 
                         //puxa o id (chave primaria do evento) e armazena na variável
                         comando.Parameters.Add(new MySqlParameter("ultimoId", comando.LastInsertedId));
