@@ -30,15 +30,17 @@ namespace AplicativoSponsor.Data
                         empresa.NomeResp = reader.GetString(1);
                         empresa.CpfResp = reader.GetString(2);
                         empresa.CNPJ = reader.GetString(3);
-                        empresa.RazaoSocial = reader.GetString(4);
-                        empresa.Descricao_Empresa = reader.GetString(5);
-                        empresa.CEP = reader.GetString(6);
+                        empresa.Telefone = reader.GetString(4);
+                        empresa.RazaoSocial = reader.GetString(5);
+                        empresa.Descricao_Empresa = reader.GetString(6);
                         empresa.Rua = reader.GetString(7);
-                        empresa.Numero = reader.GetInt32(0);
+                        empresa.Numero = reader.GetString(8);
                         empresa.Bairro = reader.GetString(9);
                         empresa.Cidade = reader.GetString(10);
                         empresa.Estado = reader.GetString(11);
                         empresa.Pais = reader.GetString(12);
+                        empresa.CEP = reader.GetString(13);
+                        
 
                         retornalist.Add(empresa);
 
@@ -77,16 +79,16 @@ namespace AplicativoSponsor.Data
                         empresa.NomeResp = reader.GetString(1);
                         empresa.CpfResp = reader.GetString(2);
                         empresa.CNPJ = reader.GetString(3);
-                        empresa.RazaoSocial = reader.GetString(4);
-                        empresa.Descricao_Empresa = reader.GetString(5);
-                        empresa.CEP = reader.GetString(6);
+                        empresa.Telefone = reader.GetString(4);
+                        empresa.RazaoSocial = reader.GetString(5);
+                        empresa.Descricao_Empresa = reader.GetString(6);
                         empresa.Rua = reader.GetString(7);
-                        empresa.Numero = reader.GetInt32(0);
+                        empresa.Numero = reader.GetString(8);
                         empresa.Bairro = reader.GetString(9);
                         empresa.Cidade = reader.GetString(10);
                         empresa.Estado = reader.GetString(11);
                         empresa.Pais = reader.GetString(12);
-
+                        empresa.CEP = reader.GetString(13);
 
 
                     }

@@ -13,7 +13,7 @@ namespace AplicativoSponsor.Models
         private readonly string port = "3306";
         private readonly string db = "bd_sponsor";
         private readonly string user = "root";
-        private readonly string pass = "12345678";
+        private readonly string pass = "2701";
 
         public Conexao()
         {
