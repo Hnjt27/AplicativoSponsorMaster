@@ -54,7 +54,7 @@
         function Deslogar() {
 
             window.location.href = "/Home/Index";
-            @*@{ if(ViewBag.log == ""Session["id_logado"] = null; }*@
+            <% Session.Abandon() %>
 
         }
 

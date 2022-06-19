@@ -30,6 +30,8 @@ namespace AplicativoSponsor.Controllers
                 using (Conexao conexao = new Conexao())
                 {
                     StrQuery = "SELECT * FROM tb_usuario WHERE email = @Email AND senha = @Senha;";
+                    
+
                     using (MySqlCommand comando = new MySqlCommand(StrQuery, conexao.conn))
                     {
                         comando.Parameters.AddWithValue("@Email", usuario.Email);
@@ -42,11 +44,12 @@ namespace AplicativoSponsor.Controllers
                             while (dr.Read())
                             {
                                 Session["id_logado"] = dr["id_empresa"];
+                                Session["categoria"] = dr["categoria_usuario"];
                             }
                             return RedirectToAction("Index","Home");
                         } else {
 
-                            ViewBag.ErroLogin = "Usuário ou Senha Inválidos";
+                            Session["ErroLogin"] = "Usuário ou Senha Inválidos";
                             return RedirectToAction("Login","Login");                            
 
                         }
