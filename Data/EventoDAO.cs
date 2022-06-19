@@ -37,7 +37,7 @@ namespace AplicativoSponsor.Data
                         evento.Hora_final = reader.GetString(7);
                         evento.Publico_estimado = reader.GetString(8);
                         evento.Descricao_evento = reader.GetString(9);
-                        //evento.Id_empresa = reader.GetInt32(10);
+                        evento.Id_empresa = reader.GetInt32(10);
 
                         retornalist.Add(evento);
 
@@ -53,6 +53,32 @@ namespace AplicativoSponsor.Data
             return retornalist;
         }
 
+        internal int Delete(int id)
+        {
+            using (Conexao conecta = new Conexao())
+            {
+                string mysqlquery = "DELETE FROM tb_evento WHERE id_evento = @Id_evento";
+
+
+
+                MySqlCommand command = new MySqlCommand(mysqlquery, conecta.conn);
+
+                command.Parameters.Add("@Id_evento", MySqlDbType.Int32).Value = id;
+               
+
+
+
+                int deletedID = command.ExecuteNonQuery();
+
+
+                Evento evento = new Evento();
+
+                return deletedID;
+
+
+
+            }
+        }
 
         public Evento SearchOne(int id)
         {
@@ -87,7 +113,7 @@ namespace AplicativoSponsor.Data
                         evento.Hora_final = reader.GetString(7);
                         evento.Publico_estimado = reader.GetString(8);
                         evento.Descricao_evento = reader.GetString(9);
-                        //evento.Id_empresa = reader.GetInt32(10);
+                        evento.Id_empresa = reader.GetInt32(10);
 
 
 
@@ -103,43 +129,44 @@ namespace AplicativoSponsor.Data
 
         }
 
-
-        //public int Create(Evento eventocreate)
-        //{
-
-        //    using (Conexao conecta = new Conexao())
-        //    {
-        //        string mysqlquery = "UPDATE tb_evento set (@nome_evento, @categoria_evento, @local_evento, @data_inicio, " +
-        //            "@data_final, @hora_inicio, @hora_final, @publico_estimado, @descricao_evento, @Id_empresa) where id_evento";
-
-
-
-        //        MySqlCommand command = new MySqlCommand(mysqlquery, conecta.conn);
-
-        //        command.Parameters.Add("@Id_evento", MySqlDbType.Int32).Value = eventocreate.Id_evento;
-        //        command.Parameters.Add("@nome_evento", MySqlDbType.VarChar, 45).Value = eventocreate.Nome_evento;
-        //        command.Parameters.Add("@categoria_evento", MySqlDbType.VarChar, 45).Value = eventocreate.Categoria_evento;
-        //        command.Parameters.Add("@local_evento", MySqlDbType.VarChar, 45).Value = eventocreate.Local_evento;
-        //        command.Parameters.Add("@data_inicio", MySqlDbType.VarChar, 15).Value = eventocreate.Data_inicio;
-        //        command.Parameters.Add("@data_final", MySqlDbType.VarChar, 15).Value = eventocreate.Data_final;
-        //        command.Parameters.Add("@hora_inicio", MySqlDbType.VarChar, 15).Value = eventocreate.Hora_inicio;
-        //        command.Parameters.Add("@hora_final", MySqlDbType.VarChar, 15).Value = eventocreate.Hora_final;
-        //        command.Parameters.Add("@publico_estimado", MySqlDbType.VarChar, 15).Value = eventocreate.Publico_estimado;
-        //        command.Parameters.Add("@descricao_evento", MySqlDbType.VarChar, 300).Value = eventocreate.Descricao_evento;
-        //        command.Parameters.Add("@Id_empresa", MySqlDbType.Int32).Value = eventocreate.Id_empresa;
-
-        //        command.ExecuteNonQuery();
+        //atualização para create / insert e delete no form
+        public int uptate(Evento eventocreate)
+        {
+            
+            using (Conexao conecta = new Conexao())
+            {
+                string mysqlquery = "UPDATE tb_evento set Nome_evento = @nome_evento, Categoria_evento  = @categoria_evento, Local_evento = @local_evento, Data_inicio = @data_inicio, " +
+                    "Data_final = @data_final, Hora_inicio = @hora_inicio, Hora_final = @hora_final, Publico_estimado = @publico_estimado, Descricao_evento = @descricao_evento,Id_empresa = @id_empresa WHERE id_evento = @Id_evento" ;
 
 
 
-        //        Evento evento = new Evento();
+                MySqlCommand command = new MySqlCommand(mysqlquery, conecta.conn);
 
-        //        return;
+                command.Parameters.Add("@Id_evento", MySqlDbType.Int32).Value = eventocreate.Id_evento;
+                command.Parameters.Add("@nome_evento", MySqlDbType.VarChar, 45).Value = eventocreate.Nome_evento;
+                command.Parameters.Add("@categoria_evento", MySqlDbType.VarChar, 45).Value = eventocreate.Categoria_evento;
+                command.Parameters.Add("@local_evento", MySqlDbType.VarChar, 45).Value = eventocreate.Local_evento;
+                command.Parameters.Add("@data_inicio", MySqlDbType.VarChar, 15).Value = eventocreate.Data_inicio;
+                command.Parameters.Add("@data_final", MySqlDbType.VarChar, 15).Value = eventocreate.Data_final;
+                command.Parameters.Add("@hora_inicio", MySqlDbType.VarChar, 15).Value = eventocreate.Hora_inicio;
+                command.Parameters.Add("@hora_final", MySqlDbType.VarChar, 15).Value = eventocreate.Hora_final;
+                command.Parameters.Add("@publico_estimado", MySqlDbType.VarChar, 15).Value = eventocreate.Publico_estimado;
+                command.Parameters.Add("@descricao_evento", MySqlDbType.VarChar, 300).Value = eventocreate.Descricao_evento;
+                command.Parameters.Add("@id_empresa", MySqlDbType.Int32).Value = eventocreate.Id_empresa;
+
+                
+
+                int newID  = command.ExecuteNonQuery();
+
+
+                Evento evento = new Evento();
+
+                return newID;
 
 
 
-        //    }
+            }
 
-        //}
+        }
     }
 }

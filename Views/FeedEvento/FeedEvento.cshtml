@@ -17,13 +17,13 @@
 
     }
 
-    var imagePath = "";
-    if (idevento) != null)
-    {
-        imagePath = @"Capa_Evento\" + Request["photoChoice"];
-    }
+    //var imagePath = "";
+    //if (idevento) != null)
+    //{
+    //    imagePath = @"Capa_Evento\" + Request["photoChoice"];
+    //}
 
-    if 
+    //if 
 }
 
 
@@ -52,10 +52,10 @@
 
                         </div>
 
-                        @if (imagePath != "")
+                        @*@if (imagePath != "")
                         {
                                <img src="@imagePath .png" class="card-img-top" alt="..."/>
-                         }
+                         }*@
  
 
 
@@ -79,6 +79,7 @@
                             <p>
 
                                 @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_evento))
+                                @Html.ActionLink("Delete", "Delete/" + @Html.DisplayFor(modelItem => item.Id_evento))
 
                             </p>
                         </div>

@@ -245,11 +245,12 @@
     <Content Include="Views\FeedEvento\Details.cshtml" />
     <Content Include="Views\FeedEmpresa\FeedEmpresa.cshtml" />
     <Content Include="Views\FeedEmpresa\Details.cshtml" />
+    <Content Include="Views\FeedEvento\FormEvento.cshtml" />
+    <Content Include="Views\MeuEvento\MeuEvento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Capa_Evento\" />
-    <Folder Include="Views\MeuEvento\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

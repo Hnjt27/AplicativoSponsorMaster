@@ -32,19 +32,39 @@ namespace AplicativoSponsor.Controllers
             return View("Details", evento);
         }
 
-        //public ActionResult Create()
-        //{
-        //    return View("FormEvento");
-        //}
+        //atualização para create/insert e delete
+        public ActionResult Create()
+        {
+            return View("FormEvento");
+        }
 
-        //public ActionResult ProcessCreate(Evento evento)
-        //{
-        //    //salva no db
-        //    EventoDAO eventoDAO = new EventoDAO();
+        public ActionResult Edit(int id)
+        {
+            EventoDAO eventodao = new EventoDAO();
 
-        //    eventoDAO.Create(evento);
+            Evento evento = eventodao.SearchOne(id);
+            return View("FormEvento", evento);
+        }
 
-        //    return View("Details", evento);
-        //}
+        public ActionResult ProcessCreate(Evento evento)
+        {
+            
+            EventoDAO eventoDAO = new EventoDAO();
+
+            eventoDAO.uptate(evento);
+
+            return View("Details", evento);
+        }
+
+        public ActionResult Delete(int id)
+        {
+            
+            EventoDAO eventoDAO = new EventoDAO();
+            eventoDAO.Delete(id);
+
+            List<Evento> evento = eventoDAO.SearchAll();
+
+            return View("FeedEvento", evento);
+        }
     } 
 }

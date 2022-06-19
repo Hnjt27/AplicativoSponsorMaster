@@ -95,8 +95,18 @@
 
 
 </div>
-<p>
 
+<input type="hidden" name="Delete" value="@Model.Id_evento" />
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <input type="submit" value="Delete" class="btn btn-default" />
+    </div>
     @Html.ActionLink("Eventos", "FeedEvento")
-    @Html.ActionLink("Edit", "Editar")
-</p>
+
+    @Html.ActionLink("Editar", "Edit/" + @Html.DisplayFor(model => model.Id_evento))
+
+    
+</div>
+
+
