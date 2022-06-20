@@ -154,9 +154,11 @@
     <Compile Include="Controllers\FeedEventoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MeuEmpresaController.cs" />
     <Compile Include="Controllers\MeuEventoController.cs" />
     <Compile Include="Data\EmpresaDAO.cs" />
     <Compile Include="Data\EventoDAO.cs" />
+    <Compile Include="Data\MeuEmpresaDAO.cs" />
     <Compile Include="Data\MeuEventoDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -245,8 +247,13 @@
     <Content Include="Views\FeedEvento\Details.cshtml" />
     <Content Include="Views\FeedEmpresa\FeedEmpresa.cshtml" />
     <Content Include="Views\FeedEmpresa\Details.cshtml" />
-    <Content Include="Views\FeedEvento\FormEvento.cshtml" />
+    <Content Include="Views\MeuEvento\FormEvento.cshtml" />
     <Content Include="Views\MeuEvento\MeuEvento.cshtml" />
+    <Content Include="Views\MeuEmpresa\FormEmpresa.cshtml" />
+    <Content Include="Views\MeuEmpresa\MeuEmpresa.cshtml" />
+    <Content Include="Views\MeuEvento\Details.cshtml" />
+    <Content Include="Views\MeuEmpresa\Details.cshtml" />
+    <Content Include="Views\MeuEmpresa\DetailsM.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

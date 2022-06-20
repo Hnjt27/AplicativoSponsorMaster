@@ -1,7 +1,7 @@
 ﻿@model AplicativoSponsor.Models.Evento
 
 @{
-    ViewBag.Title = "Detailsevento";
+    ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_LayoutLogado.cshtml";
 }
 
@@ -89,13 +89,15 @@
 
         </div>
 
-   
+        <input type="hidden" name="Delete" value="@Model.Id_evento" />
 
         <div class="form-group">
-          
-            @Html.ActionLink("Eventos", "FeedEvento")
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn btn-default" />
+            </div>
+            @Html.ActionLink("Eventos", "MeuEvento")
 
-            
+            @Html.ActionLink("Editar", "Edit/" + @Html.DisplayFor(model => model.Id_evento))
 
 
         </div>

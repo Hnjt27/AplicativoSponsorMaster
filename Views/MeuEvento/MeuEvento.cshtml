@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<AplicativoSponsor.Models.Evento>
 
 @{
-    ViewBag.Title = "FeedEventos - SPONSOR";
+    ViewBag.Title = "MeuEvento - SPONSOR";
 
     if (Session["id_logado"] != null)
     {
@@ -26,7 +26,12 @@
     //if
 }
 
-
+<br>
+<br>
+<br>
+<br>
+<div class="mt-5">
+</div>
 
 <body>
 
@@ -35,63 +40,65 @@
 
 
 
-    <div class="container" style="margin-left:140px;">
+    <div class="container mx-auto" style="margin-left:140px;">
+
+
+        <div class="row row-cols-4">
+
+            @foreach (var item in Model)
+            {
+
+                <div class="col">
+
+                    <div class="card" style="width: 18rem; margin-bottom:30px; min-height:600px;   max-height:600px; ">
 
 
 
-        @foreach (var item in Model)
-        {
 
-            <div class="col col-md-3">
-
-                <div class="card" style="width: 18rem; margin-bottom: 30px;height:450px;">
+                        <img src="https://www.site.com.br/wp-content/uploads/site-construcao-1.jpg" class="card-img-top" alt="...">
 
 
-                    <div name="photoChoice">
-                        <div value=@Html.DisplayFor(modelItem => item.Id_evento)></div>
+                        <div class="card-body" id="desc"
+                             style=" white-space:nowrap;   max-height:100px;  overflow:hidden; text-overflow:ellipsis;">
+                            <h5 class="card-title">@Html.DisplayFor(modelitem => item.Nome_evento)</h5>
+                            <span class="card-text">@Html.DisplayFor(modelItem => item.Descricao_evento)</span>
+                        </div>
 
+                        <ul class="list-group list-group-flush" style="max-height: 100px">
+
+                            <li class="list-group-item"><span>Categoria: @Html.DisplayFor(modelItem => item.Categoria_evento)</span></li>
+
+                            <li class="list-group-item"><span>Data inicio: @Html.DisplayFor(modelItem => item.Data_inicio)</span></li>
+
+                            <li class="list-group-item"><span>Data final: @Html.DisplayFor(modelItem => item.Data_final)</span></li>
+                        </ul>
+
+
+                        <div class="card-body">
+                            <p>
+
+                                @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_evento))
+                                @Html.ActionLink("Delete", "Delete/" + @Html.DisplayFor(modelItem => item.Id_evento))
+
+                            </p>
+                        </div>
                     </div>
 
-                    @*@if (imagePath != "")
-                        {
-                               <img src="@imagePath .png" class="card-img-top" alt="..."/>
-                         }*@
-
-
-
-                    <div class="card-body" id="desc"
-                         style="max-height:150px; overflow:hidden; text-overflow:ellipsis;">
-                        <h5 class="card-title">@Html.DisplayFor(modelitem => item.Nome_evento)</h5>
-                        <span>@Html.DisplayFor(modelItem => item.Descricao_evento)</span>
-                    </div>
-
-                    <ul class="list-group list-group-flush" style="max-height: 100px">
-
-                        <li class="list-group-item"><span>Categoria: @Html.DisplayFor(modelItem => item.Categoria_evento)</span></li>
-
-                        <li class="list-group-item"><span>Data inicio: @Html.DisplayFor(modelItem => item.Data_inicio)</span></li>
-
-                        <li class="list-group-item"><span>Data final: @Html.DisplayFor(modelItem => item.Data_final)</span></li>
-                    </ul>
-
-
-                    <div class="card-body">
-                        <p>
-
-                            @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_evento))
-                            @Html.ActionLink("Delete", "Delete/" + @Html.DisplayFor(modelItem => item.Id_evento))
-
-                        </p>
-                    </div>
                 </div>
 
-            </div>
+
+
+            }
 
 
 
 
 
-        }
+        </div>
+
+
+
+
 
 
     </div>

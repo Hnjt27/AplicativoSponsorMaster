@@ -6,11 +6,12 @@ using System.Web.Mvc;
 using AplicativoSponsor.Models;
 using AplicativoSponsor.Data;
 
+
 namespace AplicativoSponsor.Controllers
 {
-    public class FeedEmpresaController : Controller
+    public class MeuEmpresaController : Controller
     {
-        public ActionResult FeedEmpresa()
+        public ActionResult MeuEmpresa()
         {
             List<Empresa> empresa = new List<Empresa>();
 
@@ -18,10 +19,10 @@ namespace AplicativoSponsor.Controllers
 
             empresa = empresadao.SearchAll();
 
-            return View("FeedEmpresa", empresa);
+            return View("MeuEmpresa", empresa);
         }
 
-        public ActionResult Details(int id)
+        public ActionResult DetailsM(int id)
         {
 
 
@@ -29,7 +30,7 @@ namespace AplicativoSponsor.Controllers
 
             Empresa empresa = empresadao.SearchOne(id);
 
-            return View("Details", empresa);
+            return View("DetailsM", empresa);
         }
 
         public ActionResult Create()
@@ -52,7 +53,7 @@ namespace AplicativoSponsor.Controllers
 
             empresaDAO.uptate(empresa);
 
-            return View("Details", empresa);
+            return View("DetailsM", empresa);
         }
 
         public ActionResult Delete(int id)
@@ -63,7 +64,7 @@ namespace AplicativoSponsor.Controllers
 
             List<Empresa> empresa = empresaDAO.SearchAll();
 
-            return View("FeedEmpresa", empresa);
+            return View("MeuEmpresa", empresa);
         }
     }
 }

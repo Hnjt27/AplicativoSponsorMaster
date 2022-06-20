@@ -18,13 +18,14 @@
     }
 }
 
-<h2>FormEvento</h2>
+
+<br><br>
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-2"></div>
+        
         <div class="col-sm-8">
-            @using (Html.BeginForm("ProcessCreate", "FeedEvento"))
+            @using (Html.BeginForm("ProcessCreate", "MeuEvento"))
             {
                 @Html.AntiForgeryToken()
 
@@ -32,10 +33,19 @@
                 <h4>  @Html.DisplayFor(model => model.Nome_evento)</h4>
                 <hr />
 
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Id_evento, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Id_evento, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id_evento, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
 
 
                 <div class="form-group">
-                    <h7 class="control-label col-md-2">Nome Evento</h7>
+                    @Html.LabelFor(model => model.Nome_evento, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.EditorFor(model => model.Nome_evento, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nome_evento, "", new { @class = "text-danger" })
@@ -106,6 +116,14 @@
                     </div>
                 </div>
 
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Id_empresa, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Id_empresa, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Id_empresa, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
 
 
                 <input type="hidden" name="Id" value="@Model.Id_evento" />
@@ -119,7 +137,7 @@
             }
 
             <div>
-                @Html.ActionLink("Back to List", "Index")
+                @Html.ActionLink("Meus Eventos", "MeuEvento")
             </div>
         </div>
         <div class="col-sm-2"></div>

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Web;
 using AplicativoSponsor.Models;
 using MySql.Data.MySqlClient;
-
 namespace AplicativoSponsor.Data
 {
-    public class EmpresaDAO
+    public class MeuEmpresaDAO
     {
         public List<Empresa> SearchAll()
         {
@@ -40,7 +39,7 @@ namespace AplicativoSponsor.Data
                         empresa.Estado = reader.GetString(11);
                         empresa.Pais = reader.GetString(12);
                         empresa.CEP = reader.GetString(13);
-                        
+
 
                         retornalist.Add(empresa);
 
@@ -136,7 +135,7 @@ namespace AplicativoSponsor.Data
                 string mysqlquery = "UPDATE tb_empresa set nome_responsavel = @NomeResp, cpf_responsavel  = @CpfResp, cnpj = @CNPJ, telefone = @Telefone, " +
                     "razao_social = @RazaoSocial, descricao_empresa = @Descricao_Empresa, rua = @Rua, numero = @Numero, bairro = @Bairro ,cidade = @Cidade, estado = @Estado, pais = @Pais, cep = @CEP WHERE Id_empresa = @Id_empresa";
 
-               
+
 
 
                 MySqlCommand command = new MySqlCommand(mysqlquery, conecta.conn);
