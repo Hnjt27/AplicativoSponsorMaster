@@ -26,7 +26,9 @@
     //if 
 }
 
-
+<br><br><br><br>
+<div class="mt-5">
+    </div>
 
     <body>
 
@@ -35,34 +37,30 @@
 
 
 
-        <div class="container" style="margin-left:140px;">
+        <div class="container mx-auto"  style="margin-left:140px;">
 
-
+          <div class="row row-cols-4">
 
             @foreach (var item in Model)
             {
 
-                <div class="col col-md-3">
+                <div class="col">
 
-                    <div class="card" style="width: 18rem; margin-bottom: 30px;height:450px;">
+                    <div class="card" style="width: 18rem; margin-bottom:30px; min-height:600px;   max-height:600px; ">
 
 
-                        <div name ="photoChoice">
+                        <div name="photoChoice">
                             <div value=@Html.DisplayFor(modelItem => item.Id_evento)></div>
 
                         </div>
 
-                        @*@if (imagePath != "")
-                        {
-                               <img src="@imagePath .png" class="card-img-top" alt="..."/>
-                         }*@
- 
+                        <img src="https://www.site.com.br/wp-content/uploads/site-construcao-1.jpg" class="card-img-top" alt="...">
 
 
                         <div class="card-body" id="desc"
-                             style="max-height:150px; overflow:hidden; text-overflow:ellipsis;">
+                             style=" white-space:nowrap;   max-height:100px;  overflow:hidden; text-overflow:ellipsis;">
                             <h5 class="card-title">@Html.DisplayFor(modelitem => item.Nome_evento)</h5>
-                            <span>@Html.DisplayFor(modelItem => item.Descricao_evento)</span>
+                            <span class="card-text">@Html.DisplayFor(modelItem => item.Descricao_evento)</span>
                         </div>
 
                         <ul class="list-group list-group-flush" style="max-height: 100px">
@@ -86,12 +84,20 @@
                     </div>
 
                 </div>
+              
+                
+                
+                }
 
 
 
 
 
-            }
+           </div>
+
+
+
+            
 
 
         </div>
