@@ -25,17 +25,22 @@
     <div class="row">
         <div class="col-sm-2"></div>
         <div class="col-sm-8">
+
+
+
             @using (Html.BeginForm("CadastrarEvento", "CadastroEvento", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
 
-                <h1 class="titulo" style="margin-top: 90px;"> CRIAR NOVO EVENTO </h1>
 
+
+                <h1 class="titulo" style="margin-top: 90px;margin-bottom:10px;"> CRIAR NOVO EVENTO </h1>
+                <h6 style="color: darkred;">@Session["msg"]</h6><br />
                 <label for="nome_evnt">Nome do Evento</label>
-                <input type="text" class="form-control" id="nome_evnt" name="NomeEvento" required>
-                @*@Html.ValidationMessageFor(model => model.Nome_evento, "", new { @class = "text-danger" })*@<br>
+                <input type="text" class="form-control" id="nome_evnt" name="Nome_evento" required><br />
+                
 
                 <label for="estado">Categoria do Evento</label>
-                <select class="form-select" id="Cat_Evento" name="CategoriaEvento">
+                <select class="form-select" id="Cat_Evento" name="Categoria_evento">
                     <option value="Negócios">Negócios</option>
                     <option value="Alimentos e Bebidas">Alimentos e Bebidas</option>
                     <option value="Saúde e Bem-estar">Saúde e Bem-estar</option>
@@ -57,36 +62,29 @@
                     <option value="Esportes e Fitness">Esportes e Fitness</option>
                     <option value="Viagens e Ao ar livre">Viagens e Ao ar livre</option>
                     <option value="Outro">Outro</option>
-                </select>
-                @*@Html.ValidationMessageFor(model => model.Categoria_evento, "", new { @class = "text-danger" })*@<br>
+                </select><br />
+              
 
                 <label for="local_evnt">Local do Evento</label>
-                <input type="text" class="form-control" id="local_evnt" name="LocalEvento" required>
-                @*@Html.ValidationMessageFor(model => model.Local_evento, "", new { @class = "text-danger" })*@<br>
+                <input type="text" class="form-control" id="local_evnt" name="Local_evento" required><br>
 
                 <label for="data_inicio">Data Inicial</label>
-                <input type="date" class="form-control" id="data_inicio" name="DataInicio" onkeypress="mascara(this, 'data')" required>
-                @*@Html.ValidationMessageFor(model => model.Data_inicio, "", new { @class = "text-danger" })*@<br>
+                <input type="date" class="form-control" id="data_inicio" name="Data_inicio" onkeypress="mascara(this, 'data')" required><br>
 
                 <label for="data_final">Data Final</label>
-                <input type="date" class="form-control" id="data_final" name="DataFinal" onkeypress="mascara(this, 'data')" required>
-                @*@Html.ValidationMessageFor(model => model.Data_final, "", new { @class = "text-danger" })*@<br>
+                <input type="date" class="form-control" id="data_final" name="Data_final" onkeypress="mascara(this, 'data')" required><br>
 
                 <label for="hora_inicio">Hora Inicial</label>
-                <input type="time" class="form-control" id="hora_inicio" name="HoraInicio" required>
-                @*@Html.ValidationMessageFor(model => model.Hora_inicio, "", new { @class = "text-danger" })*@<br>
+                <input type="time" class="form-control" id="hora_inicio" name="Hora_inicio" required><br>
 
                 <label for="hora_final">Hora Final</label>
-                <input type="time" class="form-control" id="hora_final" name="HoraFinal" required>
-                @*Html.ValidationMessageFor(model => model.Hora_final, "", new { @class = "text-danger" })*@<br>
+                <input type="time" class="form-control" id="hora_final" name="Hora_final" required><br>
 
                 <label for="publico_est">Público Estimado</label>
-                <input type="text" class="form-control" id="public_est" name="PublicoEstimado" required>
-                @*Html.ValidationMessageFor(model => model.Publico_estimado, "", new { @class = "text-danger" })*@<br>
+                <input type="text" class="form-control" id="public_est" name="Publico_estimado" required><br>
 
                 <label for="descri_evento">Descrição do Evento</label>
-                <textarea class="form-control" id="descri_evento" name="DescricaoEvento" rows="3" required></textarea>
-                @*Html.ValidationMessageFor(model => model.Descricao_evento, "", new { @class = "text-danger" })*@<br>
+                <textarea class="form-control" id="descri_evento" name="Descricao_evento" rows="3" required></textarea><br>
 
                 <label for="img_evento">Insira a capa do evento</label><br />
                 @Html.TextBox("fileCapa", "", new { type = "file", required = "required", accept = "image/*" })<br /><br />
@@ -96,27 +94,8 @@
             }
         </div>
 
-        <h6>@ViewBag.CadastroEvt</h6>
-
         <div class="col-sm-2"></div>
     </div>
 </div>
 
-<script type="text/javascript">
-
-    function mascara(i, t) {
-
-        var v = i.value;
-
-        if (isNaN(v[v.length - 1])) {
-            i.value = v.substring(0, v.length - 1);
-            return;
-        }
-
-        if (t == "data") {
-            i.setAttribute("maxlength", "10");
-            if (v.length == 2 || v.length == 4) i.value += "/";
-        }
-
-</script>
 
