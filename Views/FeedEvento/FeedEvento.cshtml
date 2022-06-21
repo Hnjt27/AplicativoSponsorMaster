@@ -37,58 +37,68 @@
 
 
 
+    
 
 
-
-    <div class="container mx-auto" style="margin-left:140px;">
-
-
-        <div class="row row-cols-4">
-
-            @foreach (var item in Model)
-            {
-
-                <div class="col">
-
-                    <div class="card" style="width: 18rem; margin-bottom:30px; min-height:600px;   max-height:600px; ">
+        <div class="container mx-auto" style="margin-left:140px;">
 
 
+            <div class="row row-cols-4">
+
+                @foreach (var item in Model)
+                {
+
+                    <div class="col">
+
+                        <div class="card" style="width: 18rem; margin-bottom:30px; min-height:600px;   max-height:600px; ">
+
+                                @{ var imagePath = "";
+                                    imagePath = @"/Capa_Evento/" + item.Id_evento + ".png";
+                                }
+
+                                @if (imagePath != "")
+                                {
+                                    <img src="@imagePath" class="card-img-top" alt="..." width="100px" height="100px">
+                                }
+
+                                <div class="card-body" id="desc"
+                                     style=" white-space:nowrap;   max-height:100px;  overflow:hidden; text-overflow:ellipsis;">
+                                    <h5 class="card-title">@Html.DisplayFor(modelitem => item.Nome_evento)</h5>
+                                    <span class="card-text">@Html.DisplayFor(modelItem => item.Descricao_evento)</span>
+                                </div>
+
+                                <ul class="list-group list-group-flush" style="max-height: 100px">
+
+                                    <li class="list-group-item"><span>Categoria: @Html.DisplayFor(modelItem => item.Categoria_evento)</span></li>
+
+                                    <li class="list-group-item"><span>Data inicio: @Html.DisplayFor(modelItem => item.Data_inicio)</span></li>
+
+                                    <li class="list-group-item"><span>Data final: @Html.DisplayFor(modelItem => item.Data_final)</span></li>
+                                </ul>
 
 
-                        <img src="https://www.site.com.br/wp-content/uploads/site-construcao-1.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <p>
+
+                                        @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_evento))
 
 
-                        <div class="card-body" id="desc"
-                             style=" white-space:nowrap;   max-height:100px;  overflow:hidden; text-overflow:ellipsis;">
-                            <h5 class="card-title">@Html.DisplayFor(modelitem => item.Nome_evento)</h5>
-                            <span class="card-text">@Html.DisplayFor(modelItem => item.Descricao_evento)</span>
-                        </div>
+                                    </p>
+                                </div>
+                            </div>
 
-                        <ul class="list-group list-group-flush" style="max-height: 100px">
-
-                            <li class="list-group-item"><span>Categoria: @Html.DisplayFor(modelItem => item.Categoria_evento)</span></li>
-
-                            <li class="list-group-item"><span>Data inicio: @Html.DisplayFor(modelItem => item.Data_inicio)</span></li>
-
-                            <li class="list-group-item"><span>Data final: @Html.DisplayFor(modelItem => item.Data_final)</span></li>
-                        </ul>
-
-
-                        <div class="card-body">
-                            <p>
-
-                                @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_evento))
-                                
-
-                            </p>
-                        </div>
                     </div>
 
-                </div>
+
+
+                }
 
 
 
-            }
+
+
+            </div>
+
 
 
 
@@ -100,12 +110,5 @@
 
 
 
-
-    </div>
-
-
-
-
-
-</body>
+    </body>
 

@@ -26,6 +26,8 @@ namespace AplicativoSponsor.Data
 
                 MySqlCommand command = new MySqlCommand(mysqlquery, conecta.conn);
 
+                //command.Parameters.Add("id", Session["id_logado"]);
+
                 MySqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
