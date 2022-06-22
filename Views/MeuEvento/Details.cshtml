@@ -1,96 +1,125 @@
 ﻿@model AplicativoSponsor.Models.Evento
-
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
-}
+    ViewBag.Title = "Detalhes - SPONSOR";
 
-<br><br><br>
+    if (Session["id_logado"] != null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+
+    }
+
+    if (Session["id_logado"] == null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutDeslogado.cshtml";
+
+    }
+
+
+}
+<br>
+<br>
+<br>
 
 
 <div class="row">
     <div class="col-sm-2"></div>
     <div class="col-sm-8">
-        <div class="panel-body" align="center">
-            <h2  class="masthead-heading text-uppercase mb-0"> @Html.DisplayFor(model => model.Nome_evento)</h2>
-            <h4> @Html.DisplayFor(model => model.Categoria_evento)</h4>
-        </div>
+        <div class=" row clearfix img-evento">
+            <div class="col-xl-5 col-lg-5 col-sm-12 event-image">
+                @{ var imagePath = "";
+                    imagePath = @"/Capa_Evento/" + Model.Id_evento + ".png";
+                }
 
-        <div>
-
-            <div class="panel-body" align="center" style="margin-top:80px">
-
-                
-                <h5 style="margin-bottom:80px">
-                    @Html.DisplayFor(model => model.Descricao_evento)
-                </h5>
-
-
-
-                 <h6 class="control-label col-md-2">Local do evento:</h6>
-               
-
-                <h6>
-                    @Html.DisplayFor(model => model.Local_evento)
-                </h6>
-
-               
-                    <h7 class="control-label col-md-2">Data de inicio:</h7>
-               
-
-                <h6>
-                    @Html.DisplayFor(model => model.Data_inicio)
-                </h6>
-
-                
-                    <h7 class="control-label col-md-2">Data de finalização:</h7>
-
-
-                <h6>
-                    @Html.DisplayFor(model => model.Data_final)
-                </h6>
-
-            
-                    <h7 class="control-label col-md-2">Horário de inicio:</h7>
-           
-
-                <h6>
-                    @Html.DisplayFor(model => model.Hora_inicio)
-                </h6>
-
-          
-                    <h7 class="control-label col-md-2">Horário de finalização:</h7>
-              
-
-                <h6>
-                    @Html.DisplayFor(model => model.Hora_final)
-                </h6>
-
-   
-                    <h7 class="control-label col-md-2">Publico estimado:</h7>
-    
-
-                <h6>
-                    @Html.DisplayFor(model => model.Publico_estimado)
-                </h6>
-
-
-
-
-
-
-              
-                 
+                @if (imagePath != "")
+                {
+                    <img src="@imagePath" class="card-img-top" alt="..." width="100px" height="100px">
+                }
             </div>
 
-            <a href="https://web.whatsapp.com/send?phone=5511951559236" target="_blank">whatsapp</a>
+
+            <div class="col-xl-6 col-lg-6 col-sm-12 event-info offset-lg-1">
+
+                <h1 class="masthead-heading text-uppercase mb-0"> @Html.DisplayFor(model => model.Nome_evento)</h1>
+                <h2> @Html.DisplayFor(model => model.Categoria_evento)</h2>
+
+                <div style="margin-top:-10px; font-size:large">
+                    <sub>Data:</sub>
+                    <p class="control-label">
+                        De:
+                        <span>
+                            @Html.DisplayFor(model => model.Data_inicio)
+
+                        </span>
+                        até:
+                        <span>
+                            @Html.DisplayFor(model => model.Data_final)
+                        </span>
+                    </p>
+                </div>
+
+                <div style="margin-top:-10px; font-size:large">
+                    <sub>Horário:</sub>
+                    <p>
+                        Das:
+                        <span>
+                            @Html.DisplayFor(model => model.Hora_inicio)
+                        </span>
+                        até:
+                        <span>
+                            @Html.DisplayFor(model => model.Hora_final)
+                        </span>
+
+                    </p>
+                </div>
+
+                <div style="margin-top:-10px; font-size:large">
+                    <sub>Local:</sub>
+                    <p class="control-label">
+
+                        <span>
+                            @Html.DisplayFor(model => model.Local_evento)
+                        </span>
+                    </p>
+                </div>
+
+                <div style="margin-top:-10px; font-size:large ">
+                    <sub>Publico estimado:</sub>
+                    <p class="control-label">
+
+                        <span>
+                            @Html.DisplayFor(model => model.Publico_estimado)
+                        </span>
+                    </p>
+                </div>
+
+
+
+                <a href="https://web.whatsapp.com/send?phone=" + @Html.DisplayFor(modelItem => Model.Id_evento) +" target="_blank">whatsapp</a>
+
+
+
+            </div>
+        </div>
+
+        <div style="margin-top:-50px; max-width:370px">
+            <h6>Sobre:</h6>
+            <p>
+                @Html.DisplayFor(model => model.Descricao_evento)
+            </p>
+        </div>
+
+
+        <div class="form-group">
+
+            @Html.ActionLink("Eventos", "FeedEvento")
+
+
 
 
 
         </div>
-
-        <input type="hidden" name="Delete" value="@Model.Id_evento" />
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Delete" class="btn btn-default" />
@@ -102,6 +131,7 @@
 
         </div>
         <div class="col-sm-2"></div>
+
     </div>
 </div>
 

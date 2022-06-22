@@ -1,11 +1,27 @@
 ﻿@model AplicativoSponsor.Models.Evento
 
 @{
-    ViewBag.Title = "Detailsevento";
-    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
-}
+    ViewBag.Title = "Detalhes - SPONSOR";
 
-<br><br><br>
+    if (Session["id_logado"] != null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+
+    }
+
+    if (Session["id_logado"] == null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutDeslogado.cshtml";
+
+    }
+
+
+}
+<br>
+<br>
+<br>
 
 
 <div class="row">
@@ -81,7 +97,7 @@
 
 
 
-                <a href="https://web.whatsapp.com/send?phone="+ @Html.DisplayFor(modelItem => Model.Id_evento) +" target="_blank">whatsapp</a>
+                <a href="https://web.whatsapp.com/send?phone=" + @Html.DisplayFor(modelItem => Model.Id_evento) +" target="_blank">whatsapp</a>
 
 
 
@@ -96,16 +112,16 @@
         </div>
 
 
-            <div class="form-group">
+        <div class="form-group">
 
-                @Html.ActionLink("Eventos", "FeedEvento")
-
-
+            @Html.ActionLink("Eventos", "FeedEvento")
 
 
-            </div>
-            <div class="col-sm-2"></div>
+
 
         </div>
+        <div class="col-sm-2"></div>
+
     </div>
+</div>
 

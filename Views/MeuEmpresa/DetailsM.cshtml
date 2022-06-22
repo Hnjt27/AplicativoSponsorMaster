@@ -1,10 +1,24 @@
 ﻿@model AplicativoSponsor.Models.Empresa
 
 @{
-    ViewBag.Title = "Details";
-    Layout = "~/Views/Shared/_LayoutLogado.cshtml";
-}
+    ViewBag.Title = "Detalhes - SPONSOR";
 
+    if (Session["id_logado"] != null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutLogado.cshtml";
+
+    }
+
+    if (Session["id_logado"] == null)
+    {
+
+        Layout = "~/Views/Shared/_LayoutDeslogado.cshtml";
+
+    }
+
+
+}
 <h2>Details</h2>
 
 <div>
