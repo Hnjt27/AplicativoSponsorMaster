@@ -8,19 +8,30 @@ using AplicativoSponsor.Data;
 
 namespace AplicativoSponsor.Controllers
 {
+    
     public class MeuEventoController : Controller
     {
 
         // GET: MeuEvento
         public ActionResult MeuEvento()
         {
-            List<Evento> evento = new List<Evento>();
+           
 
-            EventoDAO eventodao = new EventoDAO();
+           
+           
+                List<Evento> evento = new List<Evento>();
 
-            evento = eventodao.SearchAll();
+                EventoDAO eventodao = new EventoDAO();
 
-            return View("MeuEvento", evento);
+                evento = eventodao.SearchAll();
+
+                return View("MeuEvento", evento);
+        
+            
+          
+
+
+            
         }
 
         public ActionResult Details(int id)
