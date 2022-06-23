@@ -17,13 +17,6 @@
 
     }
 
-    //var imagePath = "";
-    //if (idevento) != null)
-    //{
-    //    imagePath = @"Capa_Evento\" + Request["photoChoice"];
-    //}
-
-    //if
 }
 
 <br>
@@ -48,7 +41,14 @@
 
                     <div class="card" style="width: 18rem; margin-bottom:30px; min-height:600px;   max-height:600px; ">
 
-                        <img src="https://www.site.com.br/wp-content/uploads/site-construcao-1.jpg" class="card-img-top" alt="...">
+                        @{ var imagePath = "";
+                            imagePath = @"/Capa_Empresa/" + item.Id_empresa + ".png";
+                        }
+
+                        @if (imagePath != "")
+                        {
+                            <img src="@imagePath" class="card-img-top" alt="...">
+                        }
 
 
                         <div class="card-body" id="desc"
@@ -71,7 +71,7 @@
                             <p>
 
                                 @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_empresa))
-                              
+
 
                             </p>
                         </div>

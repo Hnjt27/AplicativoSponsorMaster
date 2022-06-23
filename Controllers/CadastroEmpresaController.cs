@@ -1,6 +1,7 @@
 ﻿using AplicativoSponsor.Models;
 using MySql.Data.MySqlClient;
 using System;
+using System.IO;
 using System.Web;
 using System.Web.Mvc;
 
@@ -20,7 +21,7 @@ namespace AplicativoSponsor.Controllers
         }
 
         [HttpPost]
-        public ActionResult CadastrarEmpresa(Empresa emp, Usuario us)
+        public ActionResult CadastrarEmpresa(Empresa emp, Usuario us, HttpPostedFileBase fileCapa)
         {
 
             using (Conexao conexao = new Conexao())
@@ -57,11 +58,16 @@ namespace AplicativoSponsor.Controllers
                     "values (@categoria, @email, @senha, @id_empresa)";
 
                     MySqlCommand comando2 = new MySqlCommand(StrQuery2, conexao.conn);
-
                     comando2.Parameters.AddWithValue("@categoria", us.Categoria);
                     comando2.Parameters.AddWithValue("@email", us.EmailCad);
                     comando2.Parameters.AddWithValue("@senha", us.SenhaCad);
                     comando2.Parameters.AddWithValue("@id_empresa", ultimoId);
+
+                    //salvar imagem 
+                    string IdEvent = Convert.ToString(ultimoId);
+                    string ImageFileName = IdEvent + ".png";
+                    string FolderPath = Path.Combine(Server.MapPath("/Capa_Empresa/"), ImageFileName);
+                    fileCapa.SaveAs(FolderPath);
 
                     comando2.ExecuteNonQuery();
 
@@ -73,7 +79,7 @@ namespace AplicativoSponsor.Controllers
                     throw;
                 }
             }
-            ViewBag.CadastroEmp = "Empresa Cadastrada com sucesso!";
+
             return RedirectToAction("Login", "Login");
         }
 

@@ -15,7 +15,7 @@ namespace AplicativoSponsor.Controllers
 
         public ActionResult Cadastro_Evento()
         {
-            if(Session["id_logado"] == null || Session["id_logado"] == "") {
+            if(Session["id_logado"] == null || Session["id_logado"].ToString() == "") {
 
                 ViewBag.msg = "Usuário não está cadastrado!";
                 return RedirectToAction("Login", "Login");
@@ -49,47 +49,39 @@ namespace AplicativoSponsor.Controllers
                     comando.Parameters.AddWithValue("@descricao_evento", evt.Descricao_evento);
                     comando.Parameters.AddWithValue("@id_empresa", Session["id_logado"]);
 
-                    try
+
+                    if (Session["categoria"].ToString() == "Organizador")
                     {
+
+                        //realiza o insert
+                        comando.ExecuteNonQuery();
+                        Session["msg"] = "Evento cadastrado com sucesso.";
                         
-                        if(Session["categoria"].ToString() == "Organizador") {
+                        //puxa o id (chave primaria do evento) e armazena na variável
+                        comando.Parameters.Add(new MySqlParameter("ultimoId", comando.LastInsertedId));
+                        int ultimoId = Convert.ToInt32(comando.Parameters["@ultimoId"].Value);
 
-                            //realiza o insert
-                            comando.ExecuteNonQuery(); 
-                            Session["msg"] = "Evento cadastrado com sucesso."; 
-                            return RedirectToAction("Cadastro_Evento", "CadastroEvento");
+                        //salvar imagem 
+                        string IdEvent = Convert.ToString(ultimoId);
+                        string ImageFileName = IdEvent + ".png";
+                        string FolderPath = Path.Combine(Server.MapPath("/Capa_Evento/"), ImageFileName);
 
-                            //puxa o id (chave primaria do evento) e armazena na variável
-                            comando.Parameters.Add(new MySqlParameter("ultimoId", comando.LastInsertedId));
-                            int ultimoId = Convert.ToInt32(comando.Parameters["@ultimoId"].Value);
+                        fileCapa.SaveAs(FolderPath);
 
-                            //salvar imagem 
-                            if (fileCapa.ContentLength > 0)
-                            {
+                        //retorna para a tela de cadastro
+                        return RedirectToAction("Cadastro_Evento", "CadastroEvento");
 
-                                string IdEvent = Convert.ToString(ultimoId);
-                                string ImageFileName = IdEvent + ".png";
-                                string FolderPath = Path.Combine(Server.MapPath("~/Capa_Evento/"), ImageFileName);
+                    } else {
 
-                                fileCapa.SaveAs(FolderPath);
-
-                            }
-
-                        }
-                        else { 
-                            
-                            Session["msg"] = "Usuário não autorizado a cadastrar um evento.";
-                            return View("Cadastro_Evento");
-
-                        }
+                        Session["msg"] = "Usuário não autorizado a cadastrar um evento.";
+                        return View("Cadastro_Evento");
 
                     }
-                    catch (Exception)
-                    {
+                        //Caso não cadastre
                         Session["msg"] = "Erro ao cadastrar evento!";
                         return RedirectToAction("Cadastro_Evento", "CadastroEvento");
-                        throw;
-                    }
+
+                    
 
                 }
             }
