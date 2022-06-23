@@ -12,7 +12,7 @@ using System.ComponentModel.DataAnnotations;
 namespace AplicativoSponsor.Data
 {
   
-    public class MeuEventoDAO
+    public class MeuEventoDAO : Controller
     {
 
         [HttpPost]
@@ -22,11 +22,9 @@ namespace AplicativoSponsor.Data
 
             using (Conexao conecta = new Conexao())
             {
-                string mysqlquery = "SELECT * from tb_evento";
+                string mysqlquery = "SELECT * from tb_evento where id_empresa= 2";
 
                 MySqlCommand command = new MySqlCommand(mysqlquery, conecta.conn);
-
-                //command.Parameters.Add("id", Session["id_logado"]);
 
                 MySqlDataReader reader = command.ExecuteReader();
 

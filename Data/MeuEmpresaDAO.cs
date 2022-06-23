@@ -14,7 +14,7 @@ namespace AplicativoSponsor.Data
 
             using (Conexao conecta = new Conexao())
             {
-                string mysqlquery = "SELECT * from tb_empresa";
+                string mysqlquery = "SELECT * from tb_empresa where id_empresa = '2'";
 
                 MySqlCommand command = new MySqlCommand(mysqlquery, conecta.conn);
 

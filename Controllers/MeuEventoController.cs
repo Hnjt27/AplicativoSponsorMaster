@@ -11,6 +11,7 @@ namespace AplicativoSponsor.Controllers
     
     public class MeuEventoController : Controller
     {
+        
 
         // GET: MeuEvento
         public ActionResult MeuEvento()
@@ -27,10 +28,7 @@ namespace AplicativoSponsor.Controllers
 
                 return View("MeuEvento", evento);
         
-            
           
-
-
             
         }
 
