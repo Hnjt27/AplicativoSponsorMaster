@@ -4,7 +4,7 @@
     {
         public int Id_empresa { get; set; }
 
-        public string NomeResp { get; set; }
+        public string NomeResp { get; set; }//ok
 
         public string CpfResp { get; set; }
 
@@ -12,23 +12,23 @@
 
         public string Telefone{ get; set; }
 
-        public string RazaoSocial { get; set; }
+        public string RazaoSocial { get; set; } //ok
 
         public string Descricao_Empresa { get; set; }
 
-        public string CEP { get; set; }
+        public string CEP { get; set; } //ok
 
-        public string Rua { get; set; }
+        public string Rua { get; set; } //ok
 
-        public string Numero { get; set; }
+        public string Numero { get; set; } //ok
 
-        public string Bairro { get; set; }
+        public string Bairro { get; set; } //ok
 
-        public string Cidade { get; set; }
+        public string Cidade { get; set; } //ok
 
-        public string Estado { get; set; }
+        public string Estado { get; set; } //ok
 
-        public string Pais { get; set; }
+        public string Pais { get; set; } //ok
 
     }
 

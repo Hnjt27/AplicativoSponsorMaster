@@ -53,10 +53,14 @@
                     <div class="card" style="width: 18rem; margin-bottom:30px; min-height:600px;   max-height:600px; ">
 
 
+                        @{ var imagePath = "";
+                            imagePath = @"/Capa_Evento/" + item.Id_evento + ".png";
+                        }
 
-
-                        <img src="https://www.site.com.br/wp-content/uploads/site-construcao-1.jpg" class="card-img-top" alt="...">
-
+                        @if (imagePath != "")
+                        {
+                            <img src="@imagePath" class="card-img-top" alt="...">
+                        }
 
                         <div class="card-body" id="desc"
                              style=" white-space:nowrap;   max-height:100px;  overflow:hidden; text-overflow:ellipsis;">
@@ -77,8 +81,9 @@
                         <div class="card-body">
                             <p>
 
-                                @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_evento))
-                                @Html.ActionLink("Delete", "Delete/" + @Html.DisplayFor(modelItem => item.Id_evento))
+                                <button class="btn btn-info" type="submit">@Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_evento))</button>
+
+                                <button type="button" class="btn btn-danger">@Html.ActionLink("Delete", "Delete/" + @Html.DisplayFor(modelItem => item.Id_evento))</button>
 
                             </p>
                         </div>

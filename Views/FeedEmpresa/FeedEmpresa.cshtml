@@ -69,10 +69,9 @@
 
                         <div class="card-body">
                             <p>
-
-                                @Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_empresa))
-
-
+                                <button  class="btn btn-info" type="submit">@Html.ActionLink("Detalhes", "Details/" + @Html.DisplayFor(modelItem => item.Id_empresa))</button>
+                            
+                                
                             </p>
                         </div>
                     </div>
