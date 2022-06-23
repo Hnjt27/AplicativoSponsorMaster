@@ -15,10 +15,7 @@ namespace AplicativoSponsor.Controllers
         // GET: MeuEvento
         public ActionResult MeuEvento()
         {
-           
 
-           
-           
                 List<Evento> evento = new List<Evento>();
 
                 EventoDAO eventodao = new EventoDAO();
@@ -26,12 +23,7 @@ namespace AplicativoSponsor.Controllers
                 evento = eventodao.SearchAll();
 
                 return View("MeuEvento", evento);
-        
-            
-          
 
-
-            
         }
 
         public ActionResult Details(int id)
