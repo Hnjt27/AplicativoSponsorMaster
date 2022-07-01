@@ -15,7 +15,7 @@ namespace AplicativoSponsor.Controllers
         {
             List<Empresa> empresa = new List<Empresa>();
 
-            EmpresaDAO empresadao = new EmpresaDAO();
+            MeuEmpresaDAO empresadao = new MeuEmpresaDAO();
 
             empresa = empresadao.SearchAll();
 
@@ -26,7 +26,7 @@ namespace AplicativoSponsor.Controllers
         {
 
 
-            EmpresaDAO empresadao = new EmpresaDAO();
+            MeuEmpresaDAO empresadao = new MeuEmpresaDAO();
 
             Empresa empresa = empresadao.SearchOne(id);
 
@@ -40,7 +40,7 @@ namespace AplicativoSponsor.Controllers
 
         public ActionResult Edit(int id)
         {
-            EmpresaDAO empresadao = new EmpresaDAO();
+            MeuEmpresaDAO empresadao = new MeuEmpresaDAO();
 
             Empresa empresa = empresadao.SearchOne(id);
             return View("FormEmpresa", empresa);
@@ -49,7 +49,7 @@ namespace AplicativoSponsor.Controllers
         public ActionResult ProcessCreate(Empresa empresa)
         {
 
-            EmpresaDAO empresaDAO = new EmpresaDAO();
+            MeuEmpresaDAO empresaDAO = new MeuEmpresaDAO();
 
             empresaDAO.uptate(empresa);
 
@@ -59,7 +59,7 @@ namespace AplicativoSponsor.Controllers
         public ActionResult Delete(int id)
         {
 
-            EmpresaDAO empresaDAO = new EmpresaDAO();
+            MeuEmpresaDAO empresaDAO = new MeuEmpresaDAO();
             empresaDAO.Delete(id);
 
             List<Empresa> empresa = empresaDAO.SearchAll();

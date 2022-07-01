@@ -19,9 +19,9 @@ namespace AplicativoSponsor.Controllers
 
                 List<Evento> evento = new List<Evento>();
 
-                EventoDAO eventodao = new EventoDAO();
+                MeuEventoDAO meueventodao = new MeuEventoDAO();
 
-                evento = eventodao.SearchAll();
+                evento = meueventodao.SearchAll();
 
                 return View("MeuEvento", evento);
         
@@ -35,9 +35,9 @@ namespace AplicativoSponsor.Controllers
         public ActionResult Details(int id)
         {
 
-            EventoDAO eventodao = new EventoDAO();
+            MeuEventoDAO meueventodao = new MeuEventoDAO();
 
-            Evento evento = eventodao.SearchOne(id);
+            Evento evento = meueventodao.SearchOne(id);
 
             return View("Details", evento);
         }
@@ -50,18 +50,18 @@ namespace AplicativoSponsor.Controllers
 
         public ActionResult Edit(int id)
         {
-            EventoDAO eventodao = new EventoDAO();
+            MeuEventoDAO meueventodao = new MeuEventoDAO();
 
-            Evento evento = eventodao.SearchOne(id);
+            Evento evento = meueventodao.SearchOne(id);
             return View("FormEvento", evento);
         }
 
         public ActionResult ProcessCreate(Evento evento)
         {
 
-            EventoDAO eventoDAO = new EventoDAO();
+            MeuEventoDAO meueventodao = new MeuEventoDAO();
 
-            eventoDAO.uptate(evento);
+            meueventodao.uptate(evento);
 
             return View("Details", evento);
         }
@@ -69,10 +69,10 @@ namespace AplicativoSponsor.Controllers
         public ActionResult Delete(int id)
         {
 
-            EventoDAO eventoDAO = new EventoDAO();
-            eventoDAO.Delete(id);
+            MeuEventoDAO meueventodao = new MeuEventoDAO();
+            meueventodao.Delete(id);
 
-            List<Evento> evento = eventoDAO.SearchAll();
+            List<Evento> evento = meueventodao.SearchAll();
 
             return View("MeuEvento", evento);
         }
